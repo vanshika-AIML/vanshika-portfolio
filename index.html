@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Personal portfolio — developer, designer, creator. Crafting digital experiences that float above the ordinary." />
+  <title>Portfolio — Floating Above the Ordinary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ===== CANVAS for particle background ===== -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- ===== FLOATING BACKGROUND ORBS ===== -->
+  <div class="bg-orbs" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="orb orb-4"></div>
+  </div>
+
+  <!-- ===== NAV ===== -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-logo">
+      <img src="portfolio-react/public/assests/profile.jpeg" alt="Vanshika Singh" class="nav-avatar" />
+      <span class="logo-text">Vanshika Singh</span>
+    </div>
+    <ul class="nav-links" role="list">
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#skills" class="nav-link">Skills</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+      Hire Me
+    </button>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- mobile menu -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile menu">
+    <a href="#about" class="mobile-link">About</a>
+    <a href="#skills" class="mobile-link">Skills</a>
+    <a href="#projects" class="mobile-link">Projects</a>
+    <a href="#contact" class="mobile-link">Contact</a>
+  </div>
+
+  <main>
+    <!-- ===== HERO ===== -->
+    <section id="hero" class="section hero-section">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="badge-dot pulse"></span>
+          Available for Work
+        </div>
+        <h1 class="hero-name">
+          <span class="name-line">Vanshika</span>
+          <span class="name-line gradient-text">Singh</span>
+        </h1>
+        <p class="hero-role">
+          <span class="role-prefix">I am a</span>
+          <span class="role-typed" id="typedRole">Creative Designer</span>
+          <span class="cursor-blink">|</span>
+        </p>
+        <p class="hero-intro">
+          Crafting immersive digital experiences that marry elegant code with stunning design.
+          I build things that float above the ordinary.
+        </p>
+        <div class="hero-actions">
+          <button class="btn-primary" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">
+            <span>View My Work</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </button>
+          <a href="#contact" class="btn-ghost">Let's Talk</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-num">50+</span>
+            <span class="stat-label">Projects</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num">5+</span>
+            <span class="stat-label">Years Exp.</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num">30+</span>
+            <span class="stat-label">Clients</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- floating geometric shapes -->
+      <div class="hero-visual" aria-hidden="true">
+        <div class="float-ring ring-outer"></div>
+        <div class="float-ring ring-inner"></div>
+        <div class="avatar-wrap">
+          <div class="avatar-glow"></div>
+          <div class="avatar-img">
+            <img src="portfolio-react/public/assests/profile.jpeg" alt="Vanshika Singh" style="width: 100%; height: 100%; object-fit: cover;" />
+          </div>
+        </div>
+        <!-- orbiting dots -->
+        <div class="orbit orbit-1">
+          <div class="orbit-dot"></div>
+        </div>
+        <div class="orbit orbit-2">
+          <div class="orbit-dot dot-cyan"></div>
+        </div>
+        <div class="orbit orbit-3">
+          <div class="orbit-dot dot-pink"></div>
+        </div>
+        <!-- floating nodes -->
+        <div class="float-node node-1">React</div>
+        <div class="float-node node-2">Node.js</div>
+        <div class="float-node node-3">AI/ML</div>
+        <div class="float-node node-4">Design</div>
+      </div>
+
+      <!-- scroll indicator -->
+      <div class="scroll-hint" aria-label="Scroll down">
+        <div class="scroll-mouse">
+          <div class="scroll-wheel"></div>
+        </div>
+        <span>Scroll</span>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">01 / About</span>
+          <h2 class="section-title">Who I <span class="gradient-text">Am</span></h2>
+        </div>
+        <div class="about-grid">
+          <div class="about-card glass-card reveal">
+            <div class="about-card-icon">🚀</div>
+            <h3>Builder</h3>
+            <p>I turn complex ideas into clean, scalable products. From REST APIs to pixel-perfect UIs — I build
+              end-to-end.</p>
+          </div>
+          <div class="about-card glass-card reveal" style="--delay:0.1s">
+            <div class="about-card-icon">🎨</div>
+            <h3>Designer</h3>
+            <p>Design-first thinking. I care deeply about user experience, accessibility, and the micro-details that
+              make a product feel premium.</p>
+          </div>
+          <div class="about-card glass-card reveal" style="--delay:0.2s">
+            <div class="about-card-icon">🤖</div>
+            <h3>AI Explorer</h3>
+            <p>Fascinated by the intersection of AI and UX. I integrate intelligent systems that genuinely help people —
+              not gimmicks.</p>
+          </div>
+          <div class="about-card glass-card reveal" style="--delay:0.3s">
+            <div class="about-card-icon">🌍</div>
+            <h3>Collaborator</h3>
+            <p>Remote-first mindset. I've shipped products with teams across 10+ time zones and love async deep-work
+              culture.</p>
+          </div>
+        </div>
+        <div class="about-bio glass-card reveal">
+          <div class="bio-text">
+            <p>Hey! I'm <strong>Alex</strong> — a full-stack developer and creative technologist based in <strong>San
+                Francisco</strong>. With 5+ years of experience, I specialize in building products that are beautiful,
+              fast, and accessible.</p>
+            <p>My stack of choice spans <strong>React, TypeScript, Node.js, Python</strong> and a growing toolkit of
+              AI/ML frameworks. I thrive at the boundary between engineering precision and design elegance.</p>
+            <p>When I'm not coding, you'll find me contributing to open source, writing about developer experience, or
+              trying to build the next thing that surprises me.</p>
+          </div>
+          <div class="bio-facts">
+            <div class="fact-item"><span class="fact-icon">📍</span> San Francisco, CA</div>
+            <div class="fact-item"><span class="fact-icon">💼</span> Open to Freelance</div>
+            <div class="fact-item"><span class="fact-icon">🎓</span> CS @ Stanford</div>
+            <div class="fact-item"><span class="fact-icon">☕</span> 3 coffees / day</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SKILLS ===== -->
+    <section id="skills" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">02 / Skills</span>
+          <h2 class="section-title">My <span class="gradient-text">Work</span></h2>
+        </div>
+        <div class="skills-grid">
+          <!-- Frontend -->
+          <div class="skill-category glass-card reveal">
+            <h3 class="skill-cat-title">Frontend</h3>
+            <div class="skill-icons">
+              <div class="skill-chip float-chip" style="--fi:0">
+                <span class="skill-emoji">⚛️</span> React
+              </div>
+              <div class="skill-chip float-chip" style="--fi:1">
+                <span class="skill-emoji">🟦</span> TypeScript
+              </div>
+              <div class="skill-chip float-chip" style="--fi:2">
+                <span class="skill-emoji">🖼️</span> Next.js
+              </div>
+              <div class="skill-chip float-chip" style="--fi:3">
+                <span class="skill-emoji">🎨</span> CSS/Sass
+              </div>
+              <div class="skill-chip float-chip" style="--fi:4">
+                <span class="skill-emoji">🌀</span> Framer
+              </div>
+              <div class="skill-chip float-chip" style="--fi:5">
+                <span class="skill-emoji">⚡</span> Vite
+              </div>
+            </div>
+          </div>
+          <!-- Backend -->
+          <div class="skill-category glass-card reveal" style="--delay:0.1s">
+            <h3 class="skill-cat-title">Backend</h3>
+            <div class="skill-icons">
+              <div class="skill-chip float-chip" style="--fi:2">
+                <span class="skill-emoji">🟩</span> Node.js
+              </div>
+              <div class="skill-chip float-chip" style="--fi:3">
+                <span class="skill-emoji">🐍</span> Python
+              </div>
+              <div class="skill-chip float-chip" style="--fi:0">
+                <span class="skill-emoji">🚀</span> FastAPI
+              </div>
+              <div class="skill-chip float-chip" style="--fi:1">
+                <span class="skill-emoji">🗄️</span> PostgreSQL
+              </div>
+              <div class="skill-chip float-chip" style="--fi:4">
+                <span class="skill-emoji">🍃</span> MongoDB
+              </div>
+              <div class="skill-chip float-chip" style="--fi:5">
+                <span class="skill-emoji">🔴</span> Redis
+              </div>
+            </div>
+          </div>
+          
+
+        <!-- proficiency bars -->
+        <div class="proficiency-list glass-card reveal">
+          <h3 class="skill-cat-title" style="margin-bottom:1.5rem">Proficiency</h3>
+          <div class="prof-item">
+            <span class="prof-label">React / Next.js</span>
+            <div class="prof-bar">
+              <div class="prof-fill" style="--w:95%"></div>
+            </div>
+            <span class="prof-pct">95%</span>
+          </div>
+          <div class="prof-item">
+            <span class="prof-label">Node.js / Python</span>
+            <div class="prof-bar">
+              <div class="prof-fill" style="--w:88%"></div>
+            </div>
+            <span class="prof-pct">88%</span>
+          </div>
+          <div class="prof-item">
+            <span class="prof-label">UI/UX Design</span>
+            <div class="prof-bar">
+              <div class="prof-fill" style="--w:82%"></div>
+            </div>
+            <span class="prof-pct">82%</span>
+          </div>
+          <div class="prof-item">
+            <span class="prof-label">AI / ML Integration</span>
+            <div class="prof-bar">
+              <div class="prof-fill" style="--w:75%"></div>
+            </div>
+            <span class="prof-pct">75%</span>
+          </div>
+          <div class="prof-item">
+            <span class="prof-label">DevOps / Cloud</span>
+            <div class="prof-bar">
+              <div class="prof-fill" style="--w:70%"></div>
+            </div>
+            <span class="prof-pct">70%</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">03 / Projects</span>
+          <h2 class="section-title">Selected <span class="gradient-text">Work</span></h2>
+        </div>
+
+        <div class="projects-filter" role="tablist" aria-label="Project filters">
+          <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All Work</button>
+          <button class="filter-btn" data-filter="design" role="tab" aria-selected="false">Graphic Artworks</button>
+          <button class="filter-btn" data-filter="tech" role="tab" aria-selected="false">Engineering Projects</button>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid">
+
+          <!-- Nike Air Jordan Promo -->
+          <div class="project-card glass-card reveal" data-category="design" style="--delay:0s">
+            <div class="project-glow" style="--c:#0ea5e9"></div>
+            <div class="project-header">
+              <span class="project-tag">Graphic Design · Advertisement</span>
+              <div class="project-links">
+                <a href="#" class="proj-link" aria-label="Project details">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div class="project-visual">
+              <img src="portfolio-react/public/assests/AIR_JORDAN_1.png" alt="Nike Air Jordan Promo" class="project-img" />
+            </div>
+            <h3 class="project-title">Nike Air Jordan Promo</h3>
+            <p class="project-desc">A vibrant blue sports advertisement layout highlighting the iconic Air Jordan sneaker with bold typography, custom textured overlays, and social media integration.</p>
+            <div class="project-stack">
+              <span class="stack-tag">Photoshop</span>
+              <span class="stack-tag">Typography</span>
+              <span class="stack-tag">Visual Design</span>
+              <span class="stack-tag">Layouting</span>
+            </div>
+          </div>
+
+          <!-- American Psycho Poster -->
+          <div class="project-card glass-card reveal" data-category="design" style="--delay:0.1s">
+            <div class="project-glow" style="--c:#ef4444"></div>
+            <div class="project-header">
+              <span class="project-tag">Graphic Design · Typographic Artwork</span>
+              <div class="project-links">
+                <a href="#" class="proj-link" aria-label="Project details">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div class="project-visual">
+              <img src="portfolio-react/public/assests/movie_poster2[1].png" alt="American Psycho Poster" class="project-img" />
+            </div>
+            <h3 class="project-title">American Psycho Poster</h3>
+            <p class="project-desc">A gritty, high-contrast red-and-black poster design exploring themes of identity and detachment. Features classic quote styling and clean layout.</p>
+            <div class="project-stack">
+              <span class="stack-tag">Photoshop</span>
+              <span class="stack-tag">Vintage Texture</span>
+              <span class="stack-tag">Grungy Typography</span>
+              <span class="stack-tag">Art Direction</span>
+            </div>
+          </div>
+
+          <!-- 1970 Dodge Charger R/T Poster -->
+          <div class="project-card glass-card reveal" data-category="design" style="--delay:0.2s">
+            <div class="project-glow" style="--c:#f59e0b"></div>
+            <div class="project-header">
+              <span class="project-tag">Graphic Design · Poster Art</span>
+              <div class="project-links">
+                <a href="#" class="proj-link" aria-label="Project details">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div class="project-visual">
+              <img src="portfolio-react/public/assests/90s dodge charger poster_.png" alt="1970 Dodge Charger R/T Poster" class="project-img" />
+            </div>
+            <h3 class="project-title">1970 Dodge Charger R/T Poster</h3>
+            <p class="project-desc">A retro-themed poster print of the legendary 1970 Dodge Charger R/T, celebrating speed with grain effects, halftone details, and vintage aesthetic.</p>
+            <div class="project-stack">
+              <span class="stack-tag">Photoshop</span>
+              <span class="stack-tag">Halftone Art</span>
+              <span class="stack-tag">Poster Layout</span>
+              <span class="stack-tag">Creative Direction</span>
+            </div>
+          </div>
+
+          <!-- Minimalist Headphones Poster Design -->
+          <div class="project-card glass-card reveal" data-category="design" style="--delay:0s">
+            <div class="project-glow" style="--c:#a78bfa"></div>
+            <div class="project-header">
+              <span class="project-tag">Graphic Design · Product Poster</span>
+              <div class="project-links">
+                <a href="#" class="proj-link" aria-label="Project details">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div class="project-visual">
+              <img src="portfolio-react/public/assests/Minimalist Headphones Poster Design.png" alt="Minimalist Headphones Poster Design" class="project-img" />
+            </div>
+            <h3 class="project-title">Minimalist Headphones Poster Design</h3>
+            <p class="project-desc">A clean, minimalist product advertisement highlighting modern over-ear headphones with elegant typography, soft lighting, and a balanced composition.</p>
+            <div class="project-stack">
+              <span class="stack-tag">Photoshop</span>
+              <span class="stack-tag">Minimalism</span>
+              <span class="stack-tag">Typography</span>
+              <span class="stack-tag">Product Branding</span>
+            </div>
+          </div>
+
+          <!-- SPIDEYYY 2.O Poster -->
+          <div class="project-card glass-card reveal" data-category="design" style="--delay:0.1s">
+            <div class="project-glow" style="--c:#ef4444"></div>
+            <div class="project-header">
+              <span class="project-tag">Graphic Design · Fan Art Poster</span>
+              <div class="project-links">
+                <a href="#" class="proj-link" aria-label="Project details">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div class="project-visual">
+              <img src="portfolio-react/public/assests/SPIDEYYY 2.O.png" alt="SPIDEYYY 2.O Poster" class="project-img" />
+            </div>
+            <h3 class="project-title">SPIDEYYY 2.O Poster</h3>
+            <p class="project-desc">A dynamic Spider-Man fan poster featuring high-contrast neon lighting, web texturing, and bold custom typography celebrating the web-slinger.</p>
+            <div class="project-stack">
+              <span class="stack-tag">Photoshop</span>
+              <span class="stack-tag">Digital Composing</span>
+              <span class="stack-tag">Color Grading</span>
+              <span class="stack-tag">Creative Design</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">04 / Contact</span>
+          <h2 class="section-title">Let's <span class="gradient-text">Connect</span></h2>
+          <p class="section-subtitle">Have a project in mind? Want to collaborate? Or just say hello? My inbox is always
+            open.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info glass-card reveal">
+            <h3>Get In Touch</h3>
+            <p>I'm currently available for freelance projects and full-time opportunities. Let's build something great
+              together.</p>
+
+            <div class="contact-items">
+              <a href="mailto:alex@portfolio.dev" class="contact-item" id="email-link">
+                <div class="ci-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                    <polyline points="22,6 12,13 2,6" />
+                  </svg>
+                </div>
+                <div>
+                  <span class="ci-label">Email</span>
+                  <span class="ci-value">alex@portfolio.dev</span>
+                </div>
+              </a>
+              <a href="#" class="contact-item" id="location-link">
+                <div class="ci-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                </div>
+                <div>
+                  <span class="ci-label">Location</span>
+                  <span class="ci-value">San Francisco, CA</span>
+                </div>
+              </a>
+            </div>
+
+            <div class="social-links">
+              <a href="#" class="social-btn" id="github-link" aria-label="GitHub profile">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                </svg>
+              </a>
+              <a href="#" class="social-btn" id="linkedin-link" aria-label="LinkedIn profile">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+                  <circle cx="4" cy="4" r="2" />
+                </svg>
+              </a>
+              <a href="#" class="social-btn" id="twitter-link" aria-label="Twitter profile">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
+                </svg>
+              </a>
+              <a href="#" class="social-btn" id="dribbble-link" aria-label="Dribbble profile">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                  <circle cx="12" cy="12" r="10" />
+                  <path
+                    d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"
+                    stroke="white" stroke-width="1" fill="none" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <form class="contact-form glass-card reveal" id="contactForm" novalidate style="--delay:0.15s">
+            <div class="form-group">
+              <label for="contactName">Your Name</label>
+              <input type="text" id="contactName" name="name" placeholder="John Doe" autocomplete="name" required />
+            </div>
+            <div class="form-group">
+              <label for="contactEmail">Email Address</label>
+              <input type="email" id="contactEmail" name="email" placeholder="john@example.com" autocomplete="email"
+                required />
+            </div>
+            <div class="form-group">
+              <label for="contactSubject">Subject</label>
+              <input type="text" id="contactSubject" name="subject" placeholder="Project Collaboration" />
+            </div>
+            <div class="form-group">
+              <label for="contactMessage">Message</label>
+              <textarea id="contactMessage" name="message" rows="5" placeholder="Tell me about your project..."
+                required></textarea>
+            </div>
+            <button type="submit" class="btn-primary form-submit" id="submitBtn">
+              <span id="submitText">Send Message</span>
+              <svg id="submitIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <line x1="22" y1="2" x2="11" y2="13" />
+                <polygon points="22 2 15 22 11 13 2 9 22 2" />
+              </svg>
+            </button>
+            <div class="form-success" id="formSuccess" aria-live="polite">
+              <span>✅</span> Message sent! I'll get back to you soon.
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="portfolio-react/public/assests/profile.jpeg" alt="Vanshika Singh" class="nav-avatar" />
+        <span class="logo-text">Vanshika Singh</span>
+      </div>
+      <p class="footer-copy">Designed & Built by <strong>Vanshika Singh</strong> · 2026</p>
+      <p class="footer-love">Made with ☕ &amp; ✨</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+
+</html>

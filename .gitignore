@@ -1,0 +1,11 @@
+# Build & Dependency Artifacts
+node_modules/
+dist/
+
+# Logs
+*.log
+npm-debug.log*
+
+# System Files
+.DS_Store
+Thumbs.db
