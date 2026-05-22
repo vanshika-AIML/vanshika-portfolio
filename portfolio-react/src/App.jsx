@@ -13,7 +13,8 @@ const PROJECTS = [
     icon: '👟',
     glowColor: '#0ea5e9',
     visualClass: 'pv-Nike',
-    image: '/assests/AIR_JORDAN_1.png'
+    image: '/assests/AIR_JORDAN_1.png',
+    liveLink: '/assests/AIR_JORDAN_1.png'
   },
   {
     id: 2,
@@ -25,7 +26,8 @@ const PROJECTS = [
     icon: '🩸',
     glowColor: '#ef4444',
     visualClass: 'pv-Psycho',
-    image: '/assests/movie_poster2[1].png'
+    image: '/assests/movie_poster2[1].png',
+    liveLink: '/assests/movie_poster2[1].png'
   },
   {
     id: 3,
@@ -37,7 +39,8 @@ const PROJECTS = [
     icon: '🚗',
     glowColor: '#f59e0b',
     visualClass: 'pv-Charger',
-    image: '/assests/90s dodge charger poster_.png'
+    image: '/assests/90s dodge charger poster_.png',
+    liveLink: '/assests/90s dodge charger poster_.png'
   },
   {
     id: 4,
@@ -49,7 +52,8 @@ const PROJECTS = [
     icon: '🎧',
     glowColor: '#a78bfa',
     visualClass: 'pv-Headphones',
-    image: '/assests/Minimalist Headphones Poster Design.png'
+    image: '/assests/Minimalist Headphones Poster Design.png',
+    liveLink: '/assests/Minimalist Headphones Poster Design.png'
   },
   {
     id: 5,
@@ -61,7 +65,47 @@ const PROJECTS = [
     icon: '🕸️',
     glowColor: '#ef4444',
     visualClass: 'pv-Spidey',
-    image: '/assests/SPIDEYYY 2.O.png'
+    image: '/assests/SPIDEYYY 2.O.png',
+    liveLink: '/assests/SPIDEYYY 2.O.png'
+  },
+  {
+    id: 6,
+    title: 'AI Art Generator & Composition Pipeline',
+    categories: ['tech'],
+    tag: 'Computer Engineering · AIML',
+    desc: 'Integrated custom diffusion model pipelines with Photoshop plugin interfaces to generate visual concept art layouts programmatically.',
+    stack: ['Python', 'PyTorch', 'Stable Diffusion', 'React', 'Node.js'],
+    icon: '🤖',
+    glowColor: '#a78bfa',
+    visualClass: 'pv-1',
+    githubLink: 'https://github.com/vanshika-singh',
+    liveLink: '#'
+  },
+  {
+    id: 7,
+    title: 'Intelligent Graphic Asset Classifier',
+    categories: ['tech'],
+    tag: 'Machine Learning · Computer Vision',
+    desc: 'Developed a convolutional neural network (CNN) model to auto-classify design assets into artistic styles (vintage, grunge, minimal, retro).',
+    stack: ['Python', 'TensorFlow', 'OpenCV', 'Scikit-learn'],
+    icon: '🖼️',
+    glowColor: '#14b8a6',
+    visualClass: 'pv-2',
+    githubLink: 'https://github.com/vanshika-singh',
+    liveLink: '#'
+  },
+  {
+    id: 8,
+    title: 'Anti-Gravity Layout Studio',
+    categories: ['tech'],
+    tag: 'Web Engineering · Front-end',
+    desc: 'Created an interactive visual physics-based design playground with spring animations, magnetic grids, and draggable card layouts.',
+    stack: ['React', 'Vite', 'Framer Motion', 'Canvas API'],
+    icon: '🌌',
+    glowColor: '#ec4899',
+    visualClass: 'pv-4',
+    githubLink: 'https://github.com/vanshika-singh',
+    liveLink: '#'
   }
 ];
 
@@ -329,7 +373,17 @@ function App() {
           </li>
           <li>
             <button onClick={() => handleNavClick('projects')} className="nav-link" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
-              Projects & Designs
+              Projects
+            </button>
+          </li>
+          <li>
+            <button onClick={() => handleNavClick('experience')} className="nav-link" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
+              Experience
+            </button>
+          </li>
+          <li>
+            <button onClick={() => handleNavClick('resume')} className="nav-link" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
+              Resume
             </button>
           </li>
           <li>
@@ -362,7 +416,13 @@ function App() {
           Skills
         </button>
         <button onClick={() => handleNavClick('projects')} className="mobile-link">
-          Projects & Designs
+          Projects
+        </button>
+        <button onClick={() => handleNavClick('experience')} className="mobile-link">
+          Experience
+        </button>
+        <button onClick={() => handleNavClick('resume')} className="mobile-link">
+          Resume
         </button>
         <button onClick={() => handleNavClick('contact')} className="mobile-link">
           Contact
@@ -392,13 +452,18 @@ function App() {
             </p>
             <div className="hero-actions">
               <button className="btn-primary" onClick={() => handleNavClick('projects')}>
-                <span>View My Designs</span>
+                <span>View Projects</span>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </button>
-              <button onClick={() => handleNavClick('contact')} className="btn-ghost" style={{ background: 'transparent', cursor: 'pointer' }}>
-                Let's Collaborate
+              <button onClick={() => handleNavClick('resume')} className="btn-ghost" style={{ background: 'transparent', cursor: 'pointer' }}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '6px' }}>
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+                <span>Download Resume</span>
               </button>
             </div>
             <div className="hero-stats">
@@ -594,13 +659,22 @@ function App() {
                   <div className="project-header">
                     <span className="project-tag">{project.tag}</span>
                     <div className="project-links">
-                      <a href="#" className="proj-link" aria-label="Link to project details">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
-                          <polyline points="15 3 21 3 21 9" />
-                          <line x1="10" y1="14" x2="21" y2="3" />
-                        </svg>
-                      </a>
+                      {project.githubLink && (
+                        <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="proj-link" aria-label="GitHub Source">
+                          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                          </svg>
+                        </a>
+                      )}
+                      {project.liveLink && (
+                        <a href={project.liveLink} target="_blank" rel="noopener noreferrer" className="proj-link" aria-label="Live Demo / View Work">
+                          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
+                            <polyline points="15 3 21 3 21 9" />
+                            <line x1="10" y1="14" x2="21" y2="3" />
+                          </svg>
+                        </a>
+                      )}
                     </div>
                   </div>
                   {project.image ? (
@@ -627,8 +701,199 @@ function App() {
                       </span>
                     ))}
                   </div>
+                  <div className="project-actions">
+                    {project.githubLink && (
+                      <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="proj-action-btn">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style={{ marginRight: '4px' }}>
+                          <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                        </svg>
+                        <span>GitHub</span>
+                      </a>
+                    )}
+                    {project.liveLink && (
+                      <a href={project.liveLink} target="_blank" rel="noopener noreferrer" className="proj-action-btn">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ marginRight: '4px' }}>
+                          <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
+                          <polyline points="15 3 21 3 21 9" />
+                          <line x1="10" y1="14" x2="21" y2="3" />
+                        </svg>
+                        <span>View Work</span>
+                      </a>
+                    )}
+                  </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ===== EXPERIENCE ===== */}
+        <section id="experience" className="section">
+          <div className="container">
+            <div className="section-header">
+              <span className="section-tag">04 / Experience</span>
+              <h2 className="section-title">Professional <span className="gradient-text">Journey</span></h2>
+              <p className="section-subtitle">A timeline of my technical leadership, artistic roles, and academic projects.</p>
+            </div>
+
+            <div className="timeline">
+              <div className="timeline-item reveal" style={{ '--delay': '0s' }}>
+                <div className="timeline-badge">
+                  <div className="timeline-icon">👑</div>
+                </div>
+                <div className="timeline-card glass-card">
+                  <div className="timeline-header">
+                    <span className="timeline-date">2025 - Present</span>
+                    <h3>IEEE Student Branch Chairperson</h3>
+                    <span className="timeline-org">Silver Oak University Student Branch</span>
+                  </div>
+                  <p className="timeline-desc">
+                    Elected to lead the IEEE Student Branch at Silver Oak University. Head operations, allocate budgets, coordinate technical events, and manage a core team of student executives.
+                  </p>
+                  <ul className="timeline-bullets">
+                    <li>Led organizing committee for "Stand to Lead" state leadership conference.</li>
+                    <li>Organized Python and Machine Learning basic workshops, impacting 200+ engineering students.</li>
+                    <li>Fostered international networking and academic collaboration through IEEE.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="timeline-item reveal" style={{ '--delay': '0.15s' }}>
+                <div className="timeline-badge">
+                  <div className="timeline-icon">🎨</div>
+                </div>
+                <div className="timeline-card glass-card">
+                  <div className="timeline-header">
+                    <span className="timeline-date">2023 - Present</span>
+                    <h3>Freelance Graphic Designer & Art Director</h3>
+                    <span className="timeline-org">Self-Employed</span>
+                  </div>
+                  <p className="timeline-desc">
+                    Providing high-end design commissions for digital promotions, movie posters, and branding advertisements. Art direction specializing in textured composition, grunge styles, and high-impact typography.
+                  </p>
+                  <ul className="timeline-bullets">
+                    <li>Designed professional commercial graphic mockups (Nike, retro Dodge Charger poster).</li>
+                    <li>Expert composition in Adobe Photoshop using complex masking, color grading, and texture manipulation.</li>
+                    <li>Maintained client retention rate of 90% with timely delivery and premium visuals.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="timeline-item reveal" style={{ '--delay': '0.3s' }}>
+                <div className="timeline-badge">
+                  <div className="timeline-icon">🤖</div>
+                </div>
+                <div className="timeline-card glass-card">
+                  <div className="timeline-header">
+                    <span className="timeline-date">2024 - 2025</span>
+                    <h3>CE-AIML Student Coordinator</h3>
+                    <span className="timeline-org">Silver Oak University CE-AIML Department</span>
+                  </div>
+                  <p className="timeline-desc">
+                    Acted as technical coordinator within the B.Tech Computer Engineering (AI & ML) cohort, managing study groups, tutoring, and organizing localized coding hackathons.
+                  </p>
+                  <ul className="timeline-bullets">
+                    <li>Assisted in implementing supervised machine learning algorithms for database analysis tasks.</li>
+                    <li>Hosted peer study groups for Data Structures & Algorithms in Java and C.</li>
+                    <li>Collaborated on curriculum-aligned neural network workshops.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== RESUME DOWNLOAD ===== */}
+        <section id="resume" className="section">
+          <div className="container">
+            <div className="section-header">
+              <span className="section-tag">05 / Resume</span>
+              <h2 className="section-title">Curriculum <span className="gradient-text">Vitae</span></h2>
+              <p className="section-subtitle">Review my credentials or download a print-friendly version of my resume.</p>
+            </div>
+
+            <div className="resume-grid">
+              <div className="resume-preview glass-card reveal">
+                <div className="rp-header">
+                  <div className="rp-profile">
+                    <img src="/assests/profile.jpeg" alt="Vanshika Singh" className="rp-avatar" />
+                    <div>
+                      <h3 className="rp-name">Vanshika Singh</h3>
+                      <p className="rp-title">Creative Designer & CE-AIML Student</p>
+                    </div>
+                  </div>
+                  <span className="rp-badge">Recruiter-Friendly</span>
+                </div>
+                <div className="rp-body">
+                  <div className="rp-col">
+                    <h4 className="rp-section-title">Education</h4>
+                    <div className="rp-item">
+                      <h5>B.Tech in Computer Engineering (AI & ML)</h5>
+                      <p>Silver Oak University · 2022 - 2026</p>
+                    </div>
+                    
+                    <h4 className="rp-section-title" style={{ marginTop: '1.5rem' }}>Certifications</h4>
+                    <ul className="rp-list">
+                      <li>AI & Machine Learning Foundations</li>
+                      <li>Advanced Graphic Design & Photoshop Composition</li>
+                      <li>Cybersecurity Basics & Incident Handling</li>
+                    </ul>
+                  </div>
+
+                  <div className="rp-col">
+                    <h4 className="rp-section-title">Core Competencies</h4>
+                    <div className="rp-tags">
+                      <span>Photoshop</span>
+                      <span>Visual Composition</span>
+                      <span>Typography</span>
+                      <span>Java & C</span>
+                      <span>Data Structures</span>
+                      <span>AI/ML Fundamentals</span>
+                      <span>DevOps Interest</span>
+                      <span>Team Leadership</span>
+                      <span>Event Coordination</span>
+                    </div>
+
+                    <h4 className="rp-section-title" style={{ marginTop: '1.5rem' }}>IEEE Involvement</h4>
+                    <div className="rp-item">
+                      <h5>IEEE SOU Student Branch Leader</h5>
+                      <p>Active coordination paradigms and community events.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="resume-cta-card glass-card reveal" style={{ '--delay': '0.15s' }}>
+                <div className="rc-content">
+                  <div className="rc-icon">📄</div>
+                  <h3>Download my CV</h3>
+                  <p>
+                    Get the complete overview of my qualifications, academic performance, and design portfolios in a clean, print-ready PDF document.
+                  </p>
+                  <div className="rc-actions">
+                    <a 
+                      href="/Vanshika_Singh_Resume.pdf" 
+                      download="Vanshika_Singh_Resume.pdf" 
+                      className="btn-primary"
+                    >
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '6px' }}>
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                        <polyline points="7 10 12 15 17 10" />
+                        <line x1="12" y1="15" x2="12" y2="3" />
+                      </svg>
+                      <span>Download PDF</span>
+                    </a>
+                    <a 
+                      href="https://linkedin.com" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="btn-ghost"
+                    >
+                      <span>View LinkedIn</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -637,7 +902,7 @@ function App() {
         <section id="contact" className="section">
           <div className="container">
             <div className="section-header">
-              <span className="section-tag">04 / Contact</span>
+              <span className="section-tag">06 / Contact</span>
               <h2 className="section-title">Let's <span className="gradient-text">Connect</span></h2>
               <p className="section-subtitle">Have a design request? Want to discuss AI/ML or collaboration? Drop me a message.</p>
             </div>
